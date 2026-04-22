@@ -8,7 +8,8 @@ namespace Filmoteka_baze
 {
     public partial class Glavna : Form
     {
-        string konekcija = @"Server=DESKTOP-VL9Q1G1\SQLEXPRESS;Database=Filmoteka;Trusted_Connection=True;";
+        int korisnikID;
+        string konekcija =Konekcija.String;
 
         Panel hoverPanel = null;
         bool hoverEnter = false;
@@ -16,8 +17,13 @@ namespace Filmoteka_baze
         {
             InitializeComponent();
         }
+        public Glavna(int korisnikID)
+        {
+            InitializeComponent();
+            this.korisnikID = korisnikID;
+        }
 
-private void UcitajFilmove()
+        private void UcitajFilmove()
     {
         flowFilmovi.Controls.Clear();
 
