@@ -134,7 +134,6 @@ namespace Filmoteka_baze
 
         private void btnPotvrdiRegistraciju_Click(object sender, EventArgs e)
         {
-            // 1. Provera praznih polja
             if (txtRegKorisnickoIme.Text == "" ||
                 txtRegLozinka.Text == "" ||
                 txtPotvrdaLozinke.Text == "")
@@ -144,7 +143,6 @@ namespace Filmoteka_baze
                 return;
             }
 
-            // 2. Provera lozinki
             if (txtRegLozinka.Text != txtPotvrdaLozinke.Text)
             {
                 CustomMessageBox msg = new CustomMessageBox("Lozinke se ne poklapaju!");
@@ -155,8 +153,6 @@ namespace Filmoteka_baze
             using (SqlConnection conn = new SqlConnection(Konekcija.String))
             {
                 conn.Open();
-
-                // 3. Provera da li korisnik već postoji
                 string checkQuery = "SELECT COUNT(*) FROM Korisnik WHERE KorisnickoIme = @ime";
 
                 SqlCommand checkCmd = new SqlCommand(checkQuery, conn);
@@ -170,8 +166,6 @@ namespace Filmoteka_baze
                     msg.ShowDialog();
                     return;
                 }
-
-                // 4. Ubacivanje korisnika
                 string insertQuery = "INSERT INTO Korisnik (KorisnickoIme, Lozinka) VALUES (@ime, @lozinka)";
 
                 SqlCommand insertCmd = new SqlCommand(insertQuery, conn);
@@ -180,16 +174,13 @@ namespace Filmoteka_baze
 
                 insertCmd.ExecuteNonQuery();
 
-                // 5. Uspešna poruka
                 CustomMessageBox msgSuccess = new CustomMessageBox("Uspešno ste registrovani!");
                 msgSuccess.ShowDialog();
 
-                // 6. (opciono) reset polja
                 txtRegKorisnickoIme.Clear();
                 txtRegLozinka.Clear();
                 txtPotvrdaLozinke.Clear();
 
-                // 7. (opciono) povratak na login panel
                 panelRegistracija.Visible = false;
                 panelLogin.Visible = true;
             }
