@@ -126,8 +126,8 @@ namespace Filmoteka_baze
 
                 CustomMessageBox uspesno = new CustomMessageBox("Uspešan login!");
                 uspesno.ShowDialog();
-                Glavna glavna = new Glavna(korisnikID);
-                glavna.Show();
+                Pocetna pocetna = new Pocetna(korisnikID);
+                pocetna.Show();
                 this.Hide();
             }
         }

@@ -30,15 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Detalji));
             this.panelHeader = new System.Windows.Forms.Panel();
-            this.lblNaslov = new System.Windows.Forms.Label();
             this.btnZatvori = new System.Windows.Forms.Button();
+            this.lblNaslov = new System.Windows.Forms.Label();
             this.panelMeni = new System.Windows.Forms.Panel();
-            this.btnPocetna = new System.Windows.Forms.Button();
-            this.btnFilmovi = new System.Windows.Forms.Button();
-            this.btnMojiFilmovi = new System.Windows.Forms.Button();
-            this.btnDodajFilm = new System.Windows.Forms.Button();
-            this.btnOdjava = new System.Windows.Forms.Button();
-            this.picPoster = new System.Windows.Forms.PictureBox();
             this.lblNaziv = new System.Windows.Forms.Label();
             this.lblinfoOsnovno = new System.Windows.Forms.Label();
             this.lblStudio = new System.Windows.Forms.Label();
@@ -52,10 +46,34 @@
             this.lblOcena = new System.Windows.Forms.Label();
             this.btnDodajUGledane = new System.Windows.Forms.Button();
             this.btnNazad = new System.Windows.Forms.Button();
+            this.lblOnece = new System.Windows.Forms.Label();
             this.axWmpTrailer = new AxWMPLib.AxWindowsMediaPlayer();
+            this.picStar2 = new System.Windows.Forms.PictureBox();
+            this.picStar3 = new System.Windows.Forms.PictureBox();
+            this.picStar5 = new System.Windows.Forms.PictureBox();
+            this.picStar4 = new System.Windows.Forms.PictureBox();
+            this.picStar1 = new System.Windows.Forms.PictureBox();
+            this.pbPozadinaDetalji = new System.Windows.Forms.PictureBox();
+            this.picPoster = new System.Windows.Forms.PictureBox();
+            this.btnPocetna = new System.Windows.Forms.Button();
+            this.btnOdjava = new System.Windows.Forms.Button();
+            this.btnDodajFilm = new System.Windows.Forms.Button();
+            this.btnMojiFilmovi = new System.Windows.Forms.Button();
+            this.btnFilmovi = new System.Windows.Forms.Button();
+            this.MojaOcena = new System.Windows.Forms.Label();
+            this.txtKomentar = new System.Windows.Forms.TextBox();
+            this.btnSacuvajKomentar = new System.Windows.Forms.Button();
+            this.lblKomentar = new System.Windows.Forms.Label();
+            this.btnObrisi = new System.Windows.Forms.Button();
             this.panelHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picPoster)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWmpTrailer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picStar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picStar3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picStar5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picStar4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picStar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPozadinaDetalji)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPoster)).BeginInit();
             this.SuspendLayout();
             // 
             // panelHeader
@@ -66,8 +84,25 @@
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
             this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(1206, 80);
+            this.panelHeader.Size = new System.Drawing.Size(1329, 80);
             this.panelHeader.TabIndex = 3;
+            // 
+            // btnZatvori
+            // 
+            this.btnZatvori.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnZatvori.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.btnZatvori.FlatAppearance.BorderSize = 0;
+            this.btnZatvori.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnZatvori.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnZatvori.Location = new System.Drawing.Point(1269, 10);
+            this.btnZatvori.Name = "btnZatvori";
+            this.btnZatvori.Size = new System.Drawing.Size(40, 40);
+            this.btnZatvori.TabIndex = 1;
+            this.btnZatvori.Text = "✕";
+            this.btnZatvori.UseVisualStyleBackColor = false;
+            this.btnZatvori.Click += new System.EventHandler(this.btnZatvori_Click);
+            this.btnZatvori.MouseEnter += new System.EventHandler(this.btnPocetna_MouseEnter);
+            this.btnZatvori.MouseLeave += new System.EventHandler(this.btnPocetna_MouseLeave);
             // 
             // lblNaslov
             // 
@@ -79,134 +114,14 @@
             this.lblNaslov.TabIndex = 3;
             this.lblNaslov.Text = "FILMOTEKA";
             // 
-            // btnZatvori
-            // 
-            this.btnZatvori.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnZatvori.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.btnZatvori.FlatAppearance.BorderSize = 0;
-            this.btnZatvori.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnZatvori.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnZatvori.Location = new System.Drawing.Point(1146, 10);
-            this.btnZatvori.Name = "btnZatvori";
-            this.btnZatvori.Size = new System.Drawing.Size(40, 40);
-            this.btnZatvori.TabIndex = 1;
-            this.btnZatvori.Text = "X";
-            this.btnZatvori.UseVisualStyleBackColor = false;
-            this.btnZatvori.Click += new System.EventHandler(this.btnZatvori_Click);
-            // 
             // panelMeni
             // 
             this.panelMeni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.panelMeni.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMeni.Location = new System.Drawing.Point(0, 80);
             this.panelMeni.Name = "panelMeni";
-            this.panelMeni.Size = new System.Drawing.Size(220, 531);
+            this.panelMeni.Size = new System.Drawing.Size(220, 665);
             this.panelMeni.TabIndex = 4;
-            // 
-            // btnPocetna
-            // 
-            this.btnPocetna.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.btnPocetna.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPocetna.FlatAppearance.BorderSize = 0;
-            this.btnPocetna.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPocetna.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPocetna.Image = ((System.Drawing.Image)(resources.GetObject("btnPocetna.Image")));
-            this.btnPocetna.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPocetna.Location = new System.Drawing.Point(0, 170);
-            this.btnPocetna.Name = "btnPocetna";
-            this.btnPocetna.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnPocetna.Size = new System.Drawing.Size(220, 60);
-            this.btnPocetna.TabIndex = 1;
-            this.btnPocetna.Text = "Početna";
-            this.btnPocetna.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPocetna.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPocetna.UseVisualStyleBackColor = false;
-            // 
-            // btnFilmovi
-            // 
-            this.btnFilmovi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.btnFilmovi.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFilmovi.FlatAppearance.BorderSize = 0;
-            this.btnFilmovi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFilmovi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFilmovi.Image = ((System.Drawing.Image)(resources.GetObject("btnFilmovi.Image")));
-            this.btnFilmovi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFilmovi.Location = new System.Drawing.Point(0, 260);
-            this.btnFilmovi.Name = "btnFilmovi";
-            this.btnFilmovi.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnFilmovi.Size = new System.Drawing.Size(220, 60);
-            this.btnFilmovi.TabIndex = 2;
-            this.btnFilmovi.Text = "Svi Filmovi";
-            this.btnFilmovi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFilmovi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFilmovi.UseVisualStyleBackColor = false;
-            // 
-            // btnMojiFilmovi
-            // 
-            this.btnMojiFilmovi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.btnMojiFilmovi.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMojiFilmovi.FlatAppearance.BorderSize = 0;
-            this.btnMojiFilmovi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMojiFilmovi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMojiFilmovi.Image = ((System.Drawing.Image)(resources.GetObject("btnMojiFilmovi.Image")));
-            this.btnMojiFilmovi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMojiFilmovi.Location = new System.Drawing.Point(0, 350);
-            this.btnMojiFilmovi.Name = "btnMojiFilmovi";
-            this.btnMojiFilmovi.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnMojiFilmovi.Size = new System.Drawing.Size(220, 60);
-            this.btnMojiFilmovi.TabIndex = 5;
-            this.btnMojiFilmovi.Text = "Moji Filmovi";
-            this.btnMojiFilmovi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMojiFilmovi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnMojiFilmovi.UseVisualStyleBackColor = false;
-            // 
-            // btnDodajFilm
-            // 
-            this.btnDodajFilm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.btnDodajFilm.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDodajFilm.FlatAppearance.BorderSize = 0;
-            this.btnDodajFilm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDodajFilm.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDodajFilm.Image = ((System.Drawing.Image)(resources.GetObject("btnDodajFilm.Image")));
-            this.btnDodajFilm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDodajFilm.Location = new System.Drawing.Point(0, 440);
-            this.btnDodajFilm.Name = "btnDodajFilm";
-            this.btnDodajFilm.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnDodajFilm.Size = new System.Drawing.Size(220, 60);
-            this.btnDodajFilm.TabIndex = 6;
-            this.btnDodajFilm.Text = "Dodaj Film";
-            this.btnDodajFilm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDodajFilm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDodajFilm.UseVisualStyleBackColor = false;
-            // 
-            // btnOdjava
-            // 
-            this.btnOdjava.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.btnOdjava.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOdjava.FlatAppearance.BorderSize = 0;
-            this.btnOdjava.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOdjava.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOdjava.Image = ((System.Drawing.Image)(resources.GetObject("btnOdjava.Image")));
-            this.btnOdjava.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOdjava.Location = new System.Drawing.Point(0, 530);
-            this.btnOdjava.Name = "btnOdjava";
-            this.btnOdjava.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnOdjava.Size = new System.Drawing.Size(220, 60);
-            this.btnOdjava.TabIndex = 7;
-            this.btnOdjava.Text = "Odjava";
-            this.btnOdjava.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOdjava.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnOdjava.UseVisualStyleBackColor = false;
-            // 
-            // picPoster
-            // 
-            this.picPoster.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.picPoster.Location = new System.Drawing.Point(250, 90);
-            this.picPoster.Name = "picPoster";
-            this.picPoster.Size = new System.Drawing.Size(250, 375);
-            this.picPoster.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picPoster.TabIndex = 8;
-            this.picPoster.TabStop = false;
             // 
             // lblNaziv
             // 
@@ -317,17 +232,17 @@
             // lblOcena
             // 
             this.lblOcena.AutoSize = true;
-            this.lblOcena.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOcena.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOcena.ForeColor = System.Drawing.Color.Gold;
-            this.lblOcena.Location = new System.Drawing.Point(530, 520);
+            this.lblOcena.Location = new System.Drawing.Point(530, 500);
             this.lblOcena.Name = "lblOcena";
-            this.lblOcena.Size = new System.Drawing.Size(225, 38);
+            this.lblOcena.Size = new System.Drawing.Size(155, 45);
             this.lblOcena.TabIndex = 19;
-            this.lblOcena.Text = "Ocena: ★★★★★";
+            this.lblOcena.Text = "☆☆☆☆☆";
             // 
             // btnDodajUGledane
             // 
-            this.btnDodajUGledane.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.btnDodajUGledane.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnDodajUGledane.FlatAppearance.BorderSize = 0;
             this.btnDodajUGledane.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDodajUGledane.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -339,6 +254,7 @@
             this.btnDodajUGledane.Text = "Dodaj u gledane";
             this.btnDodajUGledane.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDodajUGledane.UseVisualStyleBackColor = false;
+            this.btnDodajUGledane.Click += new System.EventHandler(this.btnDodajUGledane_Click);
             // 
             // btnNazad
             // 
@@ -355,24 +271,283 @@
             this.btnNazad.UseVisualStyleBackColor = false;
             this.btnNazad.Click += new System.EventHandler(this.btnNazad_Click);
             // 
+            // lblOnece
+            // 
+            this.lblOnece.AutoSize = true;
+            this.lblOnece.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOnece.ForeColor = System.Drawing.Color.Gold;
+            this.lblOnece.Location = new System.Drawing.Point(530, 470);
+            this.lblOnece.Name = "lblOnece";
+            this.lblOnece.Size = new System.Drawing.Size(117, 45);
+            this.lblOnece.TabIndex = 24;
+            this.lblOnece.Text = "Ocena:";
+            // 
             // axWmpTrailer
             // 
             this.axWmpTrailer.Enabled = true;
-            this.axWmpTrailer.Location = new System.Drawing.Point(770, 90);
+            this.axWmpTrailer.Location = new System.Drawing.Point(770, 70);
             this.axWmpTrailer.Name = "axWmpTrailer";
             this.axWmpTrailer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWmpTrailer.OcxState")));
             this.axWmpTrailer.Size = new System.Drawing.Size(500, 400);
             this.axWmpTrailer.TabIndex = 22;
+            // 
+            // picStar2
+            // 
+            this.picStar2.Location = new System.Drawing.Point(853, 446);
+            this.picStar2.Name = "picStar2";
+            this.picStar2.Size = new System.Drawing.Size(30, 30);
+            this.picStar2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picStar2.TabIndex = 29;
+            this.picStar2.TabStop = false;
+            // 
+            // picStar3
+            // 
+            this.picStar3.Location = new System.Drawing.Point(889, 446);
+            this.picStar3.Name = "picStar3";
+            this.picStar3.Size = new System.Drawing.Size(30, 30);
+            this.picStar3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picStar3.TabIndex = 28;
+            this.picStar3.TabStop = false;
+            // 
+            // picStar5
+            // 
+            this.picStar5.Location = new System.Drawing.Point(961, 446);
+            this.picStar5.Name = "picStar5";
+            this.picStar5.Size = new System.Drawing.Size(30, 30);
+            this.picStar5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picStar5.TabIndex = 27;
+            this.picStar5.TabStop = false;
+            // 
+            // picStar4
+            // 
+            this.picStar4.Location = new System.Drawing.Point(925, 446);
+            this.picStar4.Name = "picStar4";
+            this.picStar4.Size = new System.Drawing.Size(30, 30);
+            this.picStar4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picStar4.TabIndex = 26;
+            this.picStar4.TabStop = false;
+            // 
+            // picStar1
+            // 
+            this.picStar1.Location = new System.Drawing.Point(817, 446);
+            this.picStar1.Name = "picStar1";
+            this.picStar1.Size = new System.Drawing.Size(30, 30);
+            this.picStar1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picStar1.TabIndex = 25;
+            this.picStar1.TabStop = false;
+            // 
+            // pbPozadinaDetalji
+            // 
+            this.pbPozadinaDetalji.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pbPozadinaDetalji.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pbPozadinaDetalji.Location = new System.Drawing.Point(220, 245);
+            this.pbPozadinaDetalji.Name = "pbPozadinaDetalji";
+            this.pbPozadinaDetalji.Size = new System.Drawing.Size(1109, 500);
+            this.pbPozadinaDetalji.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbPozadinaDetalji.TabIndex = 23;
+            this.pbPozadinaDetalji.TabStop = false;
+            // 
+            // picPoster
+            // 
+            this.picPoster.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.picPoster.Location = new System.Drawing.Point(250, 90);
+            this.picPoster.Name = "picPoster";
+            this.picPoster.Size = new System.Drawing.Size(250, 375);
+            this.picPoster.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picPoster.TabIndex = 8;
+            this.picPoster.TabStop = false;
+            // 
+            // btnPocetna
+            // 
+            this.btnPocetna.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.btnPocetna.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPocetna.FlatAppearance.BorderSize = 0;
+            this.btnPocetna.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPocetna.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPocetna.Image = ((System.Drawing.Image)(resources.GetObject("btnPocetna.Image")));
+            this.btnPocetna.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPocetna.Location = new System.Drawing.Point(0, 170);
+            this.btnPocetna.Name = "btnPocetna";
+            this.btnPocetna.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnPocetna.Size = new System.Drawing.Size(220, 60);
+            this.btnPocetna.TabIndex = 1;
+            this.btnPocetna.Text = "Početna";
+            this.btnPocetna.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPocetna.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPocetna.UseVisualStyleBackColor = false;
+            this.btnPocetna.Click += new System.EventHandler(this.btnPocetna_Click);
+            this.btnPocetna.MouseEnter += new System.EventHandler(this.btnPocetna_MouseEnter);
+            this.btnPocetna.MouseLeave += new System.EventHandler(this.btnPocetna_MouseLeave);
+            // 
+            // btnOdjava
+            // 
+            this.btnOdjava.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.btnOdjava.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOdjava.FlatAppearance.BorderSize = 0;
+            this.btnOdjava.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOdjava.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOdjava.Image = ((System.Drawing.Image)(resources.GetObject("btnOdjava.Image")));
+            this.btnOdjava.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOdjava.Location = new System.Drawing.Point(0, 530);
+            this.btnOdjava.Name = "btnOdjava";
+            this.btnOdjava.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnOdjava.Size = new System.Drawing.Size(220, 60);
+            this.btnOdjava.TabIndex = 7;
+            this.btnOdjava.Text = "Odjava";
+            this.btnOdjava.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOdjava.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnOdjava.UseVisualStyleBackColor = false;
+            this.btnOdjava.Click += new System.EventHandler(this.btnOdjava_Click);
+            this.btnOdjava.MouseEnter += new System.EventHandler(this.btnPocetna_MouseEnter);
+            this.btnOdjava.MouseLeave += new System.EventHandler(this.btnPocetna_MouseLeave);
+            // 
+            // btnDodajFilm
+            // 
+            this.btnDodajFilm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.btnDodajFilm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDodajFilm.FlatAppearance.BorderSize = 0;
+            this.btnDodajFilm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDodajFilm.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDodajFilm.Image = ((System.Drawing.Image)(resources.GetObject("btnDodajFilm.Image")));
+            this.btnDodajFilm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDodajFilm.Location = new System.Drawing.Point(0, 440);
+            this.btnDodajFilm.Name = "btnDodajFilm";
+            this.btnDodajFilm.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnDodajFilm.Size = new System.Drawing.Size(220, 60);
+            this.btnDodajFilm.TabIndex = 6;
+            this.btnDodajFilm.Text = "Dodaj Film";
+            this.btnDodajFilm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDodajFilm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDodajFilm.UseVisualStyleBackColor = false;
+            this.btnDodajFilm.MouseEnter += new System.EventHandler(this.btnPocetna_MouseEnter);
+            this.btnDodajFilm.MouseLeave += new System.EventHandler(this.btnPocetna_MouseLeave);
+            // 
+            // btnMojiFilmovi
+            // 
+            this.btnMojiFilmovi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.btnMojiFilmovi.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMojiFilmovi.FlatAppearance.BorderSize = 0;
+            this.btnMojiFilmovi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMojiFilmovi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMojiFilmovi.Image = ((System.Drawing.Image)(resources.GetObject("btnMojiFilmovi.Image")));
+            this.btnMojiFilmovi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMojiFilmovi.Location = new System.Drawing.Point(0, 350);
+            this.btnMojiFilmovi.Name = "btnMojiFilmovi";
+            this.btnMojiFilmovi.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnMojiFilmovi.Size = new System.Drawing.Size(220, 60);
+            this.btnMojiFilmovi.TabIndex = 5;
+            this.btnMojiFilmovi.Text = "Moji Filmovi";
+            this.btnMojiFilmovi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMojiFilmovi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnMojiFilmovi.UseVisualStyleBackColor = false;
+            this.btnMojiFilmovi.Click += new System.EventHandler(this.btnMojiFilmovi_Click);
+            this.btnMojiFilmovi.MouseEnter += new System.EventHandler(this.btnPocetna_MouseEnter);
+            this.btnMojiFilmovi.MouseLeave += new System.EventHandler(this.btnPocetna_MouseLeave);
+            // 
+            // btnFilmovi
+            // 
+            this.btnFilmovi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.btnFilmovi.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFilmovi.FlatAppearance.BorderSize = 0;
+            this.btnFilmovi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFilmovi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFilmovi.Image = ((System.Drawing.Image)(resources.GetObject("btnFilmovi.Image")));
+            this.btnFilmovi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFilmovi.Location = new System.Drawing.Point(0, 260);
+            this.btnFilmovi.Name = "btnFilmovi";
+            this.btnFilmovi.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnFilmovi.Size = new System.Drawing.Size(220, 60);
+            this.btnFilmovi.TabIndex = 2;
+            this.btnFilmovi.Text = "Svi Filmovi";
+            this.btnFilmovi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFilmovi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFilmovi.UseVisualStyleBackColor = false;
+            this.btnFilmovi.Click += new System.EventHandler(this.btnFilmovi_Click);
+            this.btnFilmovi.MouseEnter += new System.EventHandler(this.btnPocetna_MouseEnter);
+            this.btnFilmovi.MouseLeave += new System.EventHandler(this.btnPocetna_MouseLeave);
+            // 
+            // MojaOcena
+            // 
+            this.MojaOcena.AutoSize = true;
+            this.MojaOcena.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MojaOcena.ForeColor = System.Drawing.Color.Gold;
+            this.MojaOcena.Location = new System.Drawing.Point(813, 401);
+            this.MojaOcena.Name = "MojaOcena";
+            this.MojaOcena.Size = new System.Drawing.Size(144, 29);
+            this.MojaOcena.TabIndex = 30;
+            this.MojaOcena.Text = "Moja ocena:";
+            // 
+            // txtKomentar
+            // 
+            this.txtKomentar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.txtKomentar.ForeColor = System.Drawing.Color.LightGray;
+            this.txtKomentar.Location = new System.Drawing.Point(817, 530);
+            this.txtKomentar.Multiline = true;
+            this.txtKomentar.Name = "txtKomentar";
+            this.txtKomentar.Size = new System.Drawing.Size(300, 80);
+            this.txtKomentar.TabIndex = 31;
+            // 
+            // btnSacuvajKomentar
+            // 
+            this.btnSacuvajKomentar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSacuvajKomentar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSacuvajKomentar.ForeColor = System.Drawing.Color.White;
+            this.btnSacuvajKomentar.Location = new System.Drawing.Point(868, 616);
+            this.btnSacuvajKomentar.Name = "btnSacuvajKomentar";
+            this.btnSacuvajKomentar.Size = new System.Drawing.Size(204, 52);
+            this.btnSacuvajKomentar.TabIndex = 32;
+            this.btnSacuvajKomentar.Text = "Sačuvaj komentar";
+            this.btnSacuvajKomentar.UseVisualStyleBackColor = true;
+            this.btnSacuvajKomentar.Click += new System.EventHandler(this.btnSacuvajKomentar_Click);
+            // 
+            // lblKomentar
+            // 
+            this.lblKomentar.AutoSize = true;
+            this.lblKomentar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKomentar.ForeColor = System.Drawing.Color.White;
+            this.lblKomentar.Location = new System.Drawing.Point(812, 487);
+            this.lblKomentar.Name = "lblKomentar";
+            this.lblKomentar.Size = new System.Drawing.Size(165, 29);
+            this.lblKomentar.TabIndex = 33;
+            this.lblKomentar.Text = "Vaš komentar:";
+            // 
+            // btnObrisi
+            // 
+            this.btnObrisi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnObrisi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnObrisi.FlatAppearance.BorderSize = 0;
+            this.btnObrisi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnObrisi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnObrisi.ForeColor = System.Drawing.Color.White;
+            this.btnObrisi.Location = new System.Drawing.Point(250, 673);
+            this.btnObrisi.Name = "btnObrisi";
+            this.btnObrisi.Size = new System.Drawing.Size(274, 49);
+            this.btnObrisi.TabIndex = 34;
+            this.btnObrisi.Text = "Obriši iz mojih filmova";
+            this.btnObrisi.UseVisualStyleBackColor = false;
+            this.btnObrisi.Click += new System.EventHandler(this.btnObrisi_Click);
             // 
             // Detalji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.ClientSize = new System.Drawing.Size(1206, 611);
+            this.ClientSize = new System.Drawing.Size(1329, 745);
+            this.Controls.Add(this.btnObrisi);
+            this.Controls.Add(this.lblKomentar);
+            this.Controls.Add(this.btnSacuvajKomentar);
+            this.Controls.Add(this.txtKomentar);
+            this.Controls.Add(this.MojaOcena);
+            this.Controls.Add(this.picStar2);
+            this.Controls.Add(this.picStar3);
+            this.Controls.Add(this.picStar5);
+            this.Controls.Add(this.picStar4);
+            this.Controls.Add(this.picStar1);
+            this.Controls.Add(this.pbPozadinaDetalji);
             this.Controls.Add(this.axWmpTrailer);
             this.Controls.Add(this.btnNazad);
             this.Controls.Add(this.btnDodajUGledane);
+            this.Controls.Add(this.lblOnece);
             this.Controls.Add(this.lblOcena);
             this.Controls.Add(this.lblOpisNaziv);
             this.Controls.Add(this.lblOpis);
@@ -397,10 +572,17 @@
             this.Name = "Detalji";
             this.Text = "Detalji";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Detalji_Load);
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picPoster)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWmpTrailer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picStar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picStar3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picStar5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picStar4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picStar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPozadinaDetalji)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPoster)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -432,5 +614,17 @@
         private System.Windows.Forms.Button btnDodajUGledane;
         private System.Windows.Forms.Button btnNazad;
         private AxWMPLib.AxWindowsMediaPlayer axWmpTrailer;
+        private System.Windows.Forms.PictureBox pbPozadinaDetalji;
+        private System.Windows.Forms.Label lblOnece;
+        private System.Windows.Forms.PictureBox picStar1;
+        private System.Windows.Forms.PictureBox picStar4;
+        private System.Windows.Forms.PictureBox picStar5;
+        private System.Windows.Forms.PictureBox picStar3;
+        private System.Windows.Forms.PictureBox picStar2;
+        private System.Windows.Forms.Label MojaOcena;
+        private System.Windows.Forms.TextBox txtKomentar;
+        private System.Windows.Forms.Button btnSacuvajKomentar;
+        private System.Windows.Forms.Label lblKomentar;
+        private System.Windows.Forms.Button btnObrisi;
     }
 }

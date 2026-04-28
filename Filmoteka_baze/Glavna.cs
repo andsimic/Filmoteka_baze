@@ -1,8 +1,9 @@
 ﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
-using System.IO;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace Filmoteka_baze
 {
@@ -10,6 +11,8 @@ namespace Filmoteka_baze
     {
         int korisnikID;
         string konekcija =Konekcija.String;
+        int trenutnaStrana = 1;
+        int poStrani = 20;
 
         Panel hoverPanel = null;
         bool hoverEnter = false;
@@ -22,20 +25,39 @@ namespace Filmoteka_baze
             InitializeComponent();
             this.korisnikID = korisnikID;
         }
-
+        public int UkupnoFilmova()
+        {
+            using (SqlConnection conn = new SqlConnection(konekcija))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM Film", conn);
+                return (int)cmd.ExecuteScalar();
+            }
+        }
         private void UcitajFilmove()
     {
         flowFilmovi.Controls.Clear();
 
         using (SqlConnection conn = new SqlConnection(konekcija))
         {
-            conn.Open();
+              
+                conn.Open();
 
-            string query = "SELECT FilmID, Naziv, PutanjaPostera FROM Film";
-            SqlCommand cmd = new SqlCommand(query, conn);
+                int offset = (trenutnaStrana - 1) * poStrani;
+
+                string query = @"
+SELECT FilmID, Naziv, PutanjaPostera
+FROM Film
+ORDER BY FilmID
+OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@offset", offset);
+                cmd.Parameters.AddWithValue("@limit", poStrani);
+               
             SqlDataReader reader = cmd.ExecuteReader();
+            
 
-            while (reader.Read())
+                while (reader.Read())
             {
                 Panel panelFilm = new Panel();
                 panelFilm.Size = new Size(180, 260);
@@ -103,61 +125,44 @@ namespace Filmoteka_baze
             }
 
             reader.Close();
-        }
+             
+                int ukupno = UkupnoFilmova();
+
+                btnPrev.Enabled = trenutnaStrana > 1;
+                btnNext.Enabled = trenutnaStrana * poStrani < ukupno;
+            }
     }
         private void FilmKlik(object sender, EventArgs e)
         {
             Control ctrl = (Control)sender;
 
-            // uzmi parent panel ako je klik na label ili picturebox
             Panel panel = ctrl as Panel ?? ctrl.Parent as Panel;
 
             if (panel != null)
             {
                 int filmID = Convert.ToInt32(panel.Tag);
 
-                Detalji forma = new Detalji(filmID);
-                forma.ShowDialog();
+                Detalji forma = new Detalji(filmID, korisnikID);
+                forma.Show();
             }
         }
         private void Film_MouseEnter(object sender, EventArgs e)
         {
             Control ctrl = (Control)sender;
-
             Panel panel = ctrl as Panel ?? ctrl.Parent as Panel;
 
             if (panel == null) return;
-
-            panel.BackColor = Color.FromArgb(60, 60, 60);
-
-            foreach (Control c in panel.Controls)
-            {
-                if (c is PictureBox pic)
-                {
-                    pic.Size = new Size(170, 210);
-                    pic.Location = new Point(5, 5);
-                }
-            }
+            panel.BackColor = Color.FromArgb(80, 80, 80);
         }
 
         private void Film_MouseLeave(object sender, EventArgs e)
         {
             Control ctrl = (Control)sender;
-
             Panel panel = ctrl as Panel ?? ctrl.Parent as Panel;
 
             if (panel == null) return;
 
             panel.BackColor = Color.FromArgb(45, 45, 45);
-
-            foreach (Control c in panel.Controls)
-            {
-                if (c is PictureBox pic)
-                {
-                    pic.Size = new Size(160, 200);
-                    pic.Location = new Point(10, 10);
-                }
-            }
         }
         private void btnZatvori_Click(object sender, EventArgs e)
         {
@@ -166,17 +171,88 @@ namespace Filmoteka_baze
 
         private void btnPocetna_MouseEnter(object sender, EventArgs e)
         {
-            ((Button)sender).BackColor = Color.FromArgb(40, 40, 40);
+            ((Button)sender).BackColor = Color.FromArgb(180, 0, 0);
         }
 
         private void btnPocetna_MouseLeave(object sender, EventArgs e)
         {
             ((Button)sender).BackColor = Color.FromArgb(24, 24, 24);
         }
-
+        private void AzurirajStranu()
+        {
+            lblStrana.Text = $"Strana {trenutnaStrana}";
+        }
         private void Glavna_Load(object sender, EventArgs e)
         {
             UcitajFilmove();
+            NamestiNavigaciju();
+            panelNavigacija.BringToFront();
+            AzurirajStranu();
+        }
+        private void NamestiNavigaciju()
+        {
+            btnPrev.Location = new Point(panelNavigacija.Width / 2 - 120, 10);
+            lblStrana.Location = new Point(panelNavigacija.Width / 2 - 30, 15);
+            btnNext.Location = new Point(panelNavigacija.Width / 2 + 60, 10);
+        }
+        private void btnZatvori_MouseEnter(object sender, EventArgs e)
+        {
+
+            btnZatvori.BackColor = Color.FromArgb(180, 0, 0);
+        }
+
+        private void btnZatvori_MouseLeave(object sender, EventArgs e)
+        {
+            btnZatvori.BackColor = Color.FromArgb(18, 18, 18);
+        }
+
+        private void btnPocetna_Click(object sender, EventArgs e)
+        {
+            Pocetna p = new Pocetna(korisnikID);
+            p.Show();
+            this.Hide();
+    }
+   
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            trenutnaStrana++;
+            UcitajFilmove();
+            AzurirajStranu();
+        }
+
+        private void btnPrev_Click(object sender, EventArgs e)
+        {
+            if (trenutnaStrana > 1)
+            {
+                trenutnaStrana--;
+                UcitajFilmove();
+                AzurirajStranu();
+            }
+        }
+
+        private void btnOdjava_Click(object sender, EventArgs e)
+        {
+            CustomMessageBoxOdjava msg = new CustomMessageBoxOdjava("Da li želite da se odjavite?");
+
+            if (msg.ShowDialog() == DialogResult.Yes)
+            {
+                foreach (Form f in Application.OpenForms.Cast<Form>().ToList())
+                {
+                    if (!(f is Login))
+                        f.Hide();
+                }
+
+                Login login = new Login();
+                login.Show();
+            }
+        }
+
+        private void btnMojiFilmovi_Click(object sender, EventArgs e)
+        {
+            MojiFilmovi mf = new MojiFilmovi(korisnikID);
+            mf.Show();
+            this.Hide();
         }
     }
 }
